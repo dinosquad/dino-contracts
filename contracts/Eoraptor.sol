@@ -99,7 +99,8 @@ contract Eoraptor is Ownable, ReentrancyGuard {
         if (_withUpdate) {
             massUpdatePools();
         }
-        uint256 lastRewardBlock = block.number > startBlock ? block.number : startBlock;
+        uint256 _startBlock = startBlock;
+        uint256 lastRewardBlock = block.number > _startBlock ? block.number : _startBlock;
         totalAllocPoint = totalAllocPoint.add(_allocPoint);
         poolInfo.push(PoolInfo({
             lpToken : _lpToken,
